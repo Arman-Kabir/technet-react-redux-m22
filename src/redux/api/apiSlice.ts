@@ -14,11 +14,11 @@ export const api = createApi({
         postComment: builder.mutation({
             query: ({ id, data }) => ({
                 url: `/comment/${id}`,
-                method: "POST",
+                method: 'POST',
                 body: data,
-            })
-        })
-    })
+            }),
+        }),
+    }),
 });
 
 export const { useGetProductsQuery, useSingleProductQuery, usePostCommentMutation } = api;

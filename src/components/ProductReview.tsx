@@ -18,6 +18,8 @@ interface IProps {
 
 export default function ProductReview({ id }: IProps) {
   const [inputValue, setInputValue] = useState<string>('');
+  console.log(id);
+  
 
   const [postComment, { isLoading, isError, isSuccess }] = usePostCommentMutation();
   console.log(isLoading);
@@ -32,6 +34,7 @@ export default function ProductReview({ id }: IProps) {
       id: id,
       data: { comment: inputValue },
     }
+    console.log(options);
 
     postComment(options);
     setInputValue('');
