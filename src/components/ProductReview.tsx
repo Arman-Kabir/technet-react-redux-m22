@@ -19,8 +19,8 @@ interface IProps {
 export default function ProductReview({ id }: IProps) {
   const [inputValue, setInputValue] = useState<string>('');
   console.log(id);
-  
-  const {data} = useGetCommentQuery(id);
+
+  const { data } = useGetCommentQuery(id, { refetchOnMountOrArgChange: true, pollingInterval: 30000 });
   console.log(data);
   const [postComment, { isLoading, isError, isSuccess }] = usePostCommentMutation();
   console.log(isLoading);
@@ -61,7 +61,7 @@ export default function ProductReview({ id }: IProps) {
         </Button>
       </form>
       <div className="mt-10">
-        {data?.comments?.map((comment:string, index:number) => (
+        {data?.comments?.map((comment: string, index: number) => (
           <div key={index} className="flex gap-3 items-center mb-5">
             <Avatar>
               <AvatarImage src="https://github.com/shadcn.png" />
