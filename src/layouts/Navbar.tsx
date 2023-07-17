@@ -16,7 +16,9 @@ import { useAppSelector } from '@/redux/hook';
 
 export default function Navbar() {
   const { user } = useAppSelector(state => state.user);
-
+  const handleLogout=()=>{
+    console.log('Logout');
+  }
 
 
   return (
